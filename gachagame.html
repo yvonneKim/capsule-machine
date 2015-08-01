@@ -1,0 +1,185 @@
+<html>
+	<head>
+		<title>GACHA GAME</title>
+		<link rel="stylesheet" type="text/css" href="gachastyle.css">
+		<link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="scripts/gachagame.js"></script>
+
+
+	</head>
+	<body>
+	
+		<div id="strip"></div>
+			<div id="innerStrip">
+				<span id="info" onClick="info()">???</span>
+				-
+				<span id="help" onClick="help()">help me!</span>
+				-
+				<span id="credits" onClick="credits()">Credits</span>
+			
+			</div>
+			
+		<div id="creditsBox" style="display: none">
+			<p>Made by Yvonne Kim, 2015<br>
+			Yell heah!!<br>
+			<img src="YOU.png"><br><br>
+			<button id="closeButton" onClick="credits()">Nice</button>
+			</p>
+		</div>
+		<div id="helpBox" style="display: none">
+		
+			<p>
+			Click on the handle of the machine to dispense a prize<br>
+			Click on your GP counter to get more GP<br>
+			I'll leave the rest to you. I think you can handle it.<br>
+			</p>
+			<button id="closeButton" onClick="help()">Nice</button>
+		</div>
+		<div id="infoBox" style="display: none">
+			<p>
+			<i>"[Gachapon]... refer to variety of vending machine-dispensed capsule toys popular in Japan and elsewhere. <br>
+			...<br>
+			Gashapon machines are similar to the coin-operated toy vending machines seen outside of grocery
+			stores and other retailers in other countries. While American coin-operated vending toys are usually cheap, 
+			low-quality products sold for a few quarters (US$1 or less), Japanese gashapon can cost anywhere from [100-500 Yen] 
+			(US$1-6) and are normally a much higher-quality product. "</i><br>
+			<a href="http://en.wikipedia.org/wiki/Gashapon" target="_blank">http://en.wikipedia.org/wiki/Gashapon</a><br><br>
+			<button id="closeButton" onClick="info()">Nice</button>
+			</p>
+		</div>
+		
+		<div id="gameContainer">
+			<div id="playerInfo">
+				<span id="eventAnnouncement"></span><br>
+				<span id="GPCounter" onClick="playerStats.updateGP(1)">You have <span id="gachaPoints">0</span> GP! </span>
+			</div>
+			
+			<div id="leftPanel">
+				<div id="defaultMenu" style="display: inline;">
+					<span onClick="showUnlockedSerieses()">> Change machine</span></br>
+					<span onClick="showShop()">> Go to shop</span><br>
+				</div>
+				
+				<div id="unlockedSerieses" style="display: none;">
+					<span id="backButton" style="visibility: visible;" onclick="showDefault()">&lt; BACK</span><br>
+					<span id="PETS_SERIES" style="display: inline;" onClick="changeActiveGachaponMachine(PETS_MACHINE)">Pets</span><br>
+					<span id="SWEETS_SERIES" style="display: none;" onClick="changeActiveGachaponMachine(SWEETS_MACHINE)">Sweets</span><br>
+					<span id="DINOS_SERIES" style="display: none;" onClick="changeActiveGachaponMachine(DINOS_MACHINE)">Dinos</span><br>
+				</div>
+				
+				<div id="shopInfo" style="display: none;">
+					<span id="backButton" style="visibility: visible;" onClick="showDefault()">&lt; BACK</span><br>
+					Welcome to the shop!<br><br>
+					Buy things with the prizes you've collected- GP not accepted here!<br>
+				</div>
+				
+			
+			</div>
+			<div id="mainPanel">
+<pre id="gachaponMachineArt" style="display: inline;">				
+
+    ________________
+   /               /|
+  /               / |
+ /_______________/  |
+|               |   |
+|               |   |
+|               |   |
+|               |   |
+|               |   |
+|               |   |
+|               |  /|
+|               | / |
+\_______________\/  |
+  \             |   |
+  |    ____     |   |
+  |   ( <span onClick="activeGachaponMachine.dispenseCapsule();">//</span> )    |   |
+  |             |   |
+  |             |   |
+  |             |   |
+  |             |   |
+  |             |   |
+  |             |  /
+ /              / /
+|_______________|/
+			</pre>
+<pre id="shopkeeperArt" style="display: none;">
+
+
+     .    .
+          .       =O===
+       . _       %- - %%%
+        (_)     % &lt    D%%
+         |      ' ,  ,$$$
+        -/-     %%%%  |
+         |//; ,---' _ |----.
+          \ )(           /  )
+          | \/ \.   '  _.|,  \
+          |  \ /(   /    / \_ \
+           \ /  (        | /  )
+                (  ,  ___|/ ,`
+                (   _/ (  |  \_
+              _/\--//     ,\\\
+    _______ _/\\   / |      |_________
+   |_______/   \\ / _/   ,   |________|
+   __|___#/     \  _  '      |##____|___
+  /______/ _    |  / \   |   /__________\
+        |   /           _/\_/  b'ger
+        /_     '_,____\/ )(
+       |/ \_   /        (  \
+        | /-\_/          Oooo
+        )(.
+       /  )
+      oooO
+</pre>
+			</div>
+
+			<div id="rightPanel">
+				<div id="collectionPanel" style="display: inline">
+
+					<span id="collectionSeries"></span><br>
+					<div id="collectionCapsules"><br>
+						<!--maximum 8 prizes in a series!! -->
+						<span id="capsule0"></span><br>
+						<span id="capsule1"></span><br>
+						<span id="capsule2"></span><br>
+						<span id="capsule3"></span><br>
+						<span id="capsule4"></span><br>
+						<span id="capsule5"></span><br>
+						<span id="capsule6"></span><br>
+						<span id="capsule7"></span><br>
+						
+					</div>
+				
+					<div id="collectionCounters"><br>
+						<span id="counter0"></span><br>
+						<span id="counter1"></span><br>
+						<span id="counter2"></span><br>
+						<span id="counter3"></span><br>
+						<span id="counter4"></span><br>
+						<span id="counter5"></span><br>
+						<span id="counter6"></span><br>
+						<span id="counter7"></span><br>
+					
+					</div>
+				</div>
+				<div id="shopSelection" style="display: none">
+					<div id="shopItemsArt">
+						<pre id="GPMinerArt">
+     [o]
+      |
+     /|\
+     / \
+
+						</pre>
+					</div>
+					<div id="shopListings">
+						<br><br>
+						<button id="buyButton" onClick="buyItem(GPMiner)">GP Miner - (1) Rare</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
